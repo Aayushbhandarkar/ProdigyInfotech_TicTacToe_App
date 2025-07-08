@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </button>
+
+        <!-- Game Header -->
+        <header>
+            <h1>Tic<span>Tac</span>Toe</h1>
+            <div class="game-mode">
+                <button class="mode-btn active" id="pvpMode">PvP</button>
+                <button class="mode-btn" id="pvcMode">PvC</button>
+            </div>
+        </header>
+
+        <!-- Scoreboard -->
+        <div class="scoreboard">
+            <div class="player-score x-score">
+                <span>Player X</span>
+                <span id="xScore">0</span>
+            </div>
+            <div class="player-score draw-score">
+                <span>Draws</span>
+                <span id="drawScore">0</span>
+            </div>
+            <div class="player-score o-score">
+                <span>Player O</span>
+                <span id="oScore">0</span>
+            </div>
+        </div>
+
+        <!-- Game Board -->
+        <div class="game-board" id="gameBoard">
+            <!-- Cells will be generated via JS -->
+        </div>
+
+        <!-- Game Status -->
+        <div class="game-status" id="gameStatus">
+            Player X's turn
+        </div>
+
+        <!-- Game Controls -->
+        <div class="game-controls">
+            <button class="reset-btn" id="resetBtn">
+                <i class="fas fa-sync-alt"></i> Reset
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

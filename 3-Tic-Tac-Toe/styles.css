@@ -1,0 +1,220 @@
+/* ===== BASE STYLES ===== */
+:root {
+    --primary: #6c5ce7;
+    --secondary: #a29bfe;
+    --dark: #2d3436;
+    --light: #f5f6fa;
+    --accent: #fd79a8;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Dark Mode */
+.dark-mode {
+    --primary: #a29bfe;
+    --secondary: #6c5ce7;
+    --dark: #f5f6fa;
+    --light: #2d3436;
+    --accent: #ff7675;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: var(--light);
+    color: var(--dark);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* ===== HEADER & MODE SELECTION ===== */
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+
+header h1 span {
+    color: var(--primary);
+}
+
+.game-mode {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.mode-btn {
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    background: rgba(0, 0, 0, 0.1);
+    color: var(--dark);
+}
+
+.mode-btn.active {
+    background: var(--primary);
+    color: white;
+}
+
+/* ===== SCOREBOARD ===== */
+.scoreboard {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.player-score {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.player-score span:first-child {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.player-score span:last-child {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.x-score span:last-child {
+    color: var(--primary);
+}
+
+.o-score span:last-child {
+    color: var(--accent);
+}
+
+.draw-score span:last-child {
+    color: #636e72;
+}
+
+/* ===== GAME BOARD ===== */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.cell {
+    aspect-ratio: 1/1;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.cell:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.cell.x::before {
+    content: 'X';
+    color: var(--primary);
+}
+
+.cell.o::before {
+    content: 'O';
+    color: var(--accent);
+}
+
+.cell.win {
+    animation: pulse 0.5s ease;
+    background: rgba(108, 92, 231, 0.2);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* ===== GAME STATUS ===== */
+.game-status {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    height: 1.8rem;
+}
+
+/* ===== GAME CONTROLS ===== */
+.reset-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 auto;
+}
+
+.reset-btn:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+}
+
+/* ===== THEME TOGGLE ===== */
+.theme-toggle {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--dark);
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    transform: rotate(30deg);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    .cell {
+        font-size: 2.5rem;
+    }
+}
